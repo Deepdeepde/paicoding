@@ -1,108 +1,4 @@
-<p align="center">
-  <a href="https://paicoding.com/">
-    <img src="https://cdn.tobebetterjavaer.com/images/README/1681354262213.png" alt="技术派，让技术也能很好玩" width="400">
-  </a>
-</p>
-一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，
-<br><br>
-<p align="center">
-  <a href="https://paicoding.com/article/detail/15"><img src="https://img.shields.io/badge/技术派-学习圈子-brightgreen.svg?style=for-the-badge"></a>
-  <a href="https://paicoding.com/" target="_blank"><img src="https://img.shields.io/badge/技术派-首页-critical?style=for-the-badge"></a>
-  <a href="https://github.com/itwanger/paicoding-admin" target="_blank"><img src="https://img.shields.io/badge/技术派-管理端-yellow.svg?style=for-the-badge"></a>
-  <a href="https://gitee.com/itwanger/paicoding" target="_blank"><img src="https://img.shields.io/badge/技术派-码云地址-blue.svg?style=for-the-badge"></a>
-</p>
 
-
-
-## 二、项目介绍
-
-### 项目演示
-
-#### 前台社区系统
-
-
-
-![技术派首页](https://cdn.tobebetterjavaer.com/images/20230602/d7d341c557e7470d9fb41245e5bb4209.png)
-
-#### Vue 版前后端分离版本
-
-这个版本对技术派进行了二次开发，将用户端的前端 UI 使用 Vue3 重写，并且将后端升级到 Spring Boot 3 版本，喜欢 Vue3 或者 Spring Boot 3 版本的球友可以看看这个分支。
-
-- 项目仓库（GitHub）：[https://github.com/itwanger/paicoding/tree/springboot3%26vue3](https://github.com/itwanger/paicoding/tree/springboot3%26vue3)
-- 项目仓库（码云）：[https://gitee.com/itwanger/paicoding/tree/springboot3%26vue3](https://gitee.com/itwanger/paicoding/tree/springboot3%26vue3)
-- 项目演示地址（球友小灰飞）：[https://www.xuyifei.site/](https://www.xuyifei.site/)
-
-![编程汇vue3+Spring Boot3](https://cdn.tobebetterjavaer.com/paicoding/README-1799f2f840fc4687a1cda4486782a07a.png)
-
-
-#### 后台社区系统
-
-- 项目仓库（GitHub）：[https://github.com/itwanger/paicoding-admin](https://github.com/itwanger/paicoding-admin)
-- 项目仓库（码云）：[https://gitee.com/itwanger/paicoding-admin](https://gitee.com/itwanger/paicoding-admin)
-- 项目演示地址：[https://paicoding.com/admin-view](https://paicoding.com/admin/)
-
-![技术派后台管理系统](https://cdn.tobebetterjavaer.com/images/20230602/83139e13a4784c0fbf0adedd8e287c5b.png)
-
-admin 端部署写在了 paicoding-admin 项目的 README.md 中，请注意查看⚠️。
-
-#### 代码展示
-
-![技术派源码结构](https://cdn.tobebetterjavaer.com/images/20231205/b8f76cb8e09f4ebca84b3ddd3b61c13e.png)
-
-
-### 架构图
-
-#### 系统架构图
-
-![技术派系统架构图](https://cdn.tobebetterjavaer.com/paicoding/3da165adfcad0f03d40e13e941ed4afb.png)
-
-
-#### 业务架构图
-
-![技术派业务架构图](https://cdn.tobebetterjavaer.com/paicoding/main/paicoding-business.jpg)
-
-### 组织结构
-
-```
-paicoding
-├── paicoding-api -- 定义一些通用的枚举、实体类，定义 DO\DTO\VO 等
-├── paicoding-core -- 核心工具/组件相关模块，如工具包 util， 通用的组件都放在这个模块（以包路径对模块功能进行拆分，如搜索、缓存、推荐等）
-├── paicoding-service -- 服务模块，业务相关的主要逻辑，DB 的操作都在这里
-├── paicoding-ui -- HTML 前端资源（包括 JavaScript、CSS、Thymeleaf 等）
-├── paicoding-web -- Web模块、HTTP入口、项目启动入口，包括权限身份校验、全局异常处理等
-```
-
-#### 环境配置说明
-
-资源配置都放在 `paicoding-web` 模块的资源路径下，通过maven的env进行环境选择切换
-
-当前提供了四种开发环境
-
-- resources-env/dev: 本地开发环境，也是默认环境
-- resources-env/test: 测试环境
-- resources-env/pre: 预发环境
-- resources-env/prod: 生产环境
-
-环境切换命令
-
-```bash
-# 如切换生产环境
-mvn clean install -DskipTests=true -Pprod
-```
-
-#### 配置文件说明
-
-- resources
-  - application.yml: 主配置文件入口
-  - application-config.yml: 全局的站点信息配置文件
-  - logback-spring.xml: 日志打印相关配置文件
-  - liquibase: 由liquibase进行数据库表结构管理
-- resources-env
-  - xxx/application-dal.yml: 定义数据库相关的配置信息
-  - xxx/application-image.yml: 定义上传图片的相关配置信息
-  - xxx/application-web.yml: 定义web相关的配置信息
-
-[前端工程结构说明](docs/前端工程结构说明.md)
 
 ### 技术选型
 
@@ -139,32 +35,8 @@ mvn clean install -DskipTests=true -Pprod
 |       chatgpt       | chatgpt              | [https://openai.com/blog/chatgpt](https://openai.com/blog/chatgpt)                   |
 |        讯飞星火         | 讯飞星火大模型              | [https://www.xfyun.cn/doc/spark/Web.html](https://www.xfyun.cn/doc/spark/Web.html#_1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E)                   |
 
-## 三、技术派教程
-
-技术派教程共 120+ 篇，从中整理出 20 篇，供大家免费学习。
-- [（🌟 新人必看）技术派系统架构&功能模块一览](https://paicoding.com/article/detail/15)
-- [（🌟 新人必看）小白如何学习技术派](https://paicoding.com/article/detail/366)
-- [（🌟 新人必看）如何将技术派写入简历](https://paicoding.com/article/detail/373)
-- [（🌟 新人必看）技术派架构方案设计](https://paicoding.com/column/6/5)
-- [（🌟 新人必看）技术派技术方案设计](https://paicoding.com/article/detail/208)
-- [（🌟 新人必看）技术派项目管理流程](https://paicoding.com/article/detail/445)
-- [（🌟 新人必看）技术派MVC分层架构](https://paicoding.com/article/detail/446)
-- [（🌟 新人必看）技术派项目工程搭建手册](https://paicoding.com/article/detail/459)
-- [（👍 强烈推荐）技术派微信公众号自动登录](https://paicoding.com/article/detail/448)
-- [（👍 强烈推荐）技术派微信扫码登录实现](https://paicoding.com/article/detail/453)
-- [（👍 强烈推荐）技术派Session/Cookie身份验证识别](https://paicoding.com/article/detail/449)
-- [（👍 强烈推荐）技术派Mysql/Redis缓存一致性](https://paicoding.com/column/6/3)
-- [（👍 强烈推荐）技术派Redis实现用户活跃排行榜](https://paicoding.com/article/detail/454)
-- [（👍 强烈推荐）技术派消息队列RabbitMQ](https://paicoding.com/column/6/2)
-- [（👍 强烈推荐）技术派消息队列RabbitMQ连接池](https://paicoding.com/column/6/1)
-- [（👍 强烈推荐）技术派消息队列Kafka](https://paicoding.com/article/detail/460)
-- [（👍 强烈推荐）技术派Cancal实现MySQL和ES同步](https://paicoding.com/column/6/8)
-- [（👍 强烈推荐）技术派ES实现查询](https://paicoding.com/article/detail/341)
-- [（👍 强烈推荐）技术派定时任务实现](https://paicoding.com/article/detail/457)
-- [（👍 扬帆起航）送给坚持到最后的自己，一起杨帆起航](https://paicoding.com/article/detail/447)
 
 
-## 四、环境搭建
 
 ### 开发工具
 
@@ -204,16 +76,6 @@ mvn clean install -DskipTests=true -Pprod
 |    docker     | 4.10.0+   | [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/)                                                   |
 | let's encrypt | https证书   | [https://letsencrypt.org/](https://letsencrypt.org/)                                                                   |
 
-### 搭建步骤
-
-#### 本地部署教程
-
-> [本地开发环境手把手教程](docs/本地开发环境配置教程.md)
-
-### 云服务器部署教程
-
-> [环境搭建 & 基于源码的部署教程](docs/安装环境.md)
-> [服务器启动教程](docs/服务器启动教程.md)
 
 
 
